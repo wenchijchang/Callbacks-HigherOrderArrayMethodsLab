@@ -102,36 +102,78 @@ let dishes = [
 
 // <<<<<<<<<<<<<<<<< EXAMPLE FUNCTION <<<<<<<<<<<<<<<<<
 
-function findMexicanFood() {
-  let results = dishes.filter(function (el) {
-    if (el.cuisine === "Mexican") {
-      return true;
-    } else {
-      return false;
-    }
-  });
+// function findMexicanFood() {
+//   let results = dishes.filter(function (el) {
+//     if (el.cuisine === "Mexican") {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   });
 
   //Debug tip: Place a Breakpoint on the return AFTER the filter, then hover over "results" to see results of filter without having to step through the whole thing!
 
-  return results;
-}
+//   return results;
+// }
 
-let mexicanFood = findMexicanFood();
-console.log("Mexican Foods: ", mexicanFood);
+// let mexicanFood = findMexicanFood();
+// console.log("Mexican Foods: ", mexicanFood);
 
 // <<<<<<<<<<<<<<<<< PROBLEMS <<<<<<<<<<<<<<<<<
 
 //1. Create a function that will return all dishes with the cuisine type of "Vegetarian"
 //Filter
 
+function findVegetarian(dish){
+  if (dish.cuisine === "Vegetarian"){
+    return true;
+  } else {
+    return false;
+  }
+}
+let filterVegetarian = dishes.filter(findVegetarian);
+console.log("Vegetarian: ", filterVegetarian);
+console.log([filterVegetarian]);
+
 //2. Create a function that will return all dishes with the cuisine type of "Italian" and a serving size greater than 5.
 //Filter
+
+function findItalianServeMoreThanFive (dish){
+  if (dish.cuisine === "Italian" && dish.servings >= 5){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+let filterItalianServeMoreThanFive = dishes.filter(findItalianServeMoreThanFive);
+console.log([filterItalianServeMoreThanFive]);
 
 //3. Create a function that will return only dishes whose id number matches their serving count.
 //Filter
 
+function findIDIsServing (dish){
+  if (dish.id === dish.servings){
+    return true;
+  } else {
+    return false;
+  }
+}
+let filterIdIsServing = dishes.filter(findIDIsServing);
+console.log(filterIdIsServing);
+
 //4. Create a function that will return only dishes whose serving count is even.
 //Filter
+
+function findEvenServing (dish){
+  if (dish.servings % 2 === 0){
+    return true;
+  } else {
+    return false;
+  }
+}
+let filterEvenServing = dishes.filter(findEvenServing);
+console.log(filterEvenServing)
 
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
