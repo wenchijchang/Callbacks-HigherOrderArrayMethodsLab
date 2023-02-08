@@ -133,7 +133,6 @@ function findVegetarian(dish) {
 }
 let filterVegetarian = dishes.filter(findVegetarian);
 console.log("Vegetarian: ", filterVegetarian);
-console.log([filterVegetarian]);
 
 //2. Create a function that will return all dishes with the cuisine type of "Italian" and a serving size greater than 5.
 //Filter
@@ -288,11 +287,11 @@ console.log(total);
 
 //11. Create a function that will return an array of any objects that do not share a cuisine type with any other objects.
 
+let distinctName = [...dishes.reduce((map, dish) => map.set(dish.cuisine, dish),new Map()).values()];
+console.log("Number 11 result: ", distinctName);
+
 //12. Revisit your solution for Problem 6.  Use the filter method to eliminate duplicate cuisine types, leaving only distinct values in the array.
 
-function displayDistinctName(dishes) {
-  return dishes.filter((dishes) => dishes.indexOf(dishes.cuisine) === index);
-}
-let problemTwelve = displayDistinctName(dishes);
-console.log("Number 12 result: ", problemTwelve);
+
+
   
