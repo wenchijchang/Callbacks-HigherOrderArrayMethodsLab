@@ -127,12 +127,10 @@ let dishes = [
 function findVegetarian(dish) {
   if (dish.cuisine === "Vegetarian") {
     return true;
-  } else {
-    return false;
   }
 }
 let filterVegetarian = dishes.filter(findVegetarian);
-console.log("Vegetarian: ", filterVegetarian);
+console.log("Number 1 result: ", filterVegetarian);
 
 //2. Create a function that will return all dishes with the cuisine type of "Italian" and a serving size greater than 5.
 //Filter
@@ -140,15 +138,13 @@ console.log("Vegetarian: ", filterVegetarian);
 function findItalianServeMoreThanFive(dish) {
   if (dish.cuisine === "Italian" && dish.servings >= 5) {
     return true;
-  } else {
-    return false;
   }
 }
 
 let filterItalianServeMoreThanFive = dishes.filter(
   findItalianServeMoreThanFive
 );
-console.log([filterItalianServeMoreThanFive]);
+console.log("Number 2 result: ", filterItalianServeMoreThanFive);
 
 //3. Create a function that will return only dishes whose id number matches their serving count.
 //Filter
@@ -156,12 +152,10 @@ console.log([filterItalianServeMoreThanFive]);
 function findIDIsServing(dish) {
   if (dish.id === dish.servings) {
     return true;
-  } else {
-    return false;
   }
 }
 let filterIdIsServing = dishes.filter(findIDIsServing);
-console.log(filterIdIsServing);
+console.log("Number 3 result: ", filterIdIsServing);
 
 //4. Create a function that will return only dishes whose serving count is even.
 //Filter
@@ -169,12 +163,10 @@ console.log(filterIdIsServing);
 function findEvenServing(dish) {
   if (dish.servings % 2 === 0) {
     return true;
-  } else {
-    return false;
   }
 }
 let filterEvenServing = dishes.filter(findEvenServing);
-console.log(filterEvenServing);
+console.log("Number 4 result: ", filterEvenServing);
 
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
@@ -188,7 +180,6 @@ function findTomatoAndCheese(dishes) {
       return true;
     }
   });
-  console.log(foundDishes);
   return foundDishes;
 }
 
@@ -232,14 +223,6 @@ console.log("Number 7 result: ", problemSevenMapped);
 //This function should return objects 11-13 with their names changed to "Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"
 //Map, Filter
 
-function filterVegetarian(dishes){
-  let vegetarianDishes = dishes.filter((dish) => {
-    if (dish.cuisine === "Vegetarian") {
-  return true;
-  }
-});
-return vegetarianDishes;
-}
 
 function displayCuisineTypeAndDishName(dishes) {
   let result = dishes.map((dish) => {
@@ -247,8 +230,8 @@ function displayCuisineTypeAndDishName(dishes) {
   });
   return result;
   }
-let vegetarianDishes = filterVegetarian(dishes);
-let displayVegetarianDishName = displayCuisineTypeAndDishName(vegetarianDishes);
+let displayVegetarianDishName = displayCuisineTypeAndDishName(filterVegetarian);
+// calling function created in Number 1.
 console.log("Number 8 result: ", displayVegetarianDishName);
 
 // <<<<<<<<<<<<<<<<< BONUS <<<<<<<<<<<<<<<<<
@@ -283,7 +266,7 @@ function totalServing(total, serving)
 }
 let serving = allServing(dishes)
 let total = serving.reduce(totalServing, 0);
-console.log(total);
+console.log("Number 10 result: ", total);
 
 //11. Create a function that will return an array of any objects that do not share a cuisine type with any other objects.
 
@@ -292,6 +275,12 @@ console.log("Number 11 result: ", distinctName);
 
 //12. Revisit your solution for Problem 6.  Use the filter method to eliminate duplicate cuisine types, leaving only distinct values in the array.
 
+let distinctCuisine = dishes.filter((dish, index) => {
+    return index === dishes.findIndex((Object) => {
+      return dish.cuisine === Object.cuisine;
+    })
+  })  
 
+console.log("Number 12 result: ", distinctCuisine);
 
   
